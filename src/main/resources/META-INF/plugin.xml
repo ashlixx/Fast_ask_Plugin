@@ -1,0 +1,66 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.ashlixx.stackoverflowplugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>MyPlugin</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@ashlixx.com" url="https://www.ashlixx.com">Ashlixx</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+      Plugin to help search Stack Overflow from inside IntelliJ
+    ]]></description>
+
+    <change-notes><![CDATA[
+      <ul>
+        <li>1.0 - Initial release</li>
+      </ul>
+    ]]>
+    </change-notes>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+
+        <!-- Add Ask question action to Tools Menu -->
+        <action id="StackOverflow.AskQuestion.ToolsMenu"
+                class="com.ashlixx.stackoverflowplugin.AskQuestionAction"
+                text="Ask Question on Stack Overflow"
+                description="ask a question on Stack Overflow">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt shift a"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+
+        <!-- Add action to search Stack Overflow from file editor -->
+        <action id="StackOverflow.Search.Editor"
+                class="com.ashlixx.stackoverflowplugin.SearchAction"
+                text="Search on Stack Overflow"
+                description="search on Stack Overflow">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+
+        <!-- Add action to search Stack Overflow from console editor -->
+        <action id="StackOverflow.Search.Console"
+                class="com.ashlixx.stackoverflowplugin.SearchAction"
+                text="Search on Stack Overflow"
+                description="search on Stack Overflow">
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
+        </action>
+
+    </actions>
+
+</idea-plugin>
