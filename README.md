@@ -8,3 +8,5 @@ Highlight some lines of code and then:
 1. Use shortcut Alt+Shift+A for Windows  
    or  
 2. Right-click to call context popup menu, and choose "Search on StackOverflow"
+## Author
+Malysheva Alisa, M3102 
